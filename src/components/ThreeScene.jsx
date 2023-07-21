@@ -1,21 +1,31 @@
 import React, { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Ligths } from "./Ligths";
 import { Home } from "./Home";
 import Dropdown from "./DropDown";
+import ColorPicker from "./ColorPicker";
+import  './styles/ThreeScene.css';
 
 const ThreeScene = () => {
   const [selectedNumber, setSelectedNumber] = useState(1);
+  const [selectedColor, setSelectedColor] = useState('blue');
 
   const handleDropdownChange = (number) => {
     setSelectedNumber(number);
   };
 
+  const handleColorsSelected = (colors) => {
+    setSelectedColor(colors);
+  };
+
   return (
     <>
-      <Dropdown onSelect={handleDropdownChange}/>
+      <div className="options">
+        <Dropdown onSelect={handleDropdownChange} />
+        <ColorPicker onColorsSelected={handleColorsSelected} />
+      </div>
+
       <Canvas
         className="scene"
         style={{ width: "100vw", height: "100vh" }}
@@ -23,7 +33,7 @@ const ThreeScene = () => {
       >
         <Ligths />
         <Suspense>
-          <Home color="blue" position={selectedNumber} />
+          <Home color={selectedColor} position={selectedNumber} />
         </Suspense>
         <OrbitControls />
       </Canvas>
