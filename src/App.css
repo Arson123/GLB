@@ -1,0 +1,43 @@
+.hm-followCard {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 0.8rem;
+  justify-content: space-behmeen;
+}
+
+.hm-followCard-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hm-followCard-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.hm-followCard-infoUserName {
+  opacity: 0.6;
+}
+
+.hm-followCard-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 1000px;
+}
+
+.hm-followCard-button {
+  cursor: pointer;
+  margin-left: 16px;
+  border: 0;
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-weight: bold;
+  border: 1px solid #000;
+  transition: 0.3s ease background-color;
+}
+
+.hm-followCard-button:hover {
+  opacity: 0.8;
+}
